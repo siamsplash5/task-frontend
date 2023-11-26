@@ -1,13 +1,12 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 function AddUserForm() {
-    const navigate = useNavigate();
     const [user, setUser] = useState({
         firstName: "",
         lastName: "",
         email: "",
         phone: "",
+        isBlocked: false
     });
 
     const handleSubmit = (e)=>{
@@ -24,16 +23,9 @@ function AddUserForm() {
             lastName: "",
             email: "",
             phone: "",
+            isBlocked: false
         });
     }
-
-    const navigateToHomePage = () => {
-        navigate("/");
-    };
-
-    const navigateToViewUserPage = () => {
-        navigate("/view");
-    };
 
     return (
         <div>
@@ -105,8 +97,6 @@ function AddUserForm() {
                 <br />
                 <button type="submit">Submit</button>
             </form>
-            <button type="button" onClick={navigateToHomePage}>Go to Home </button>
-            <button type="button" onClick={navigateToViewUserPage}>View Users</button>
         </div>
     );
 }
